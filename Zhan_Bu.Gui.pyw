@@ -8,12 +8,13 @@ import numpy as np
 import pickle as pk
 from tkinter.simpledialog import askstring
 from tkinter.messagebox import showinfo
+from sys import exit
 
 All_Gua_dic = pk.load(open('All_Gua_dic.pk', 'rb'))
 
 motivation = askstring(title="算卦", prompt="想预测什么事情？")
-if motivation is None:
-    showinfo(title="提示", message="不动不卦")
+if motivation is None or motivation == "":
+    showinfo(title="提示", message="不动不占")
     exit()
 
 msg_str = ""
